@@ -1,0 +1,20 @@
+VM:
+ssh -i ./group9_key.pem group9@51.120.13.32
+
+curl -u "heytDI6dBJVcUQHV:ekNjmFzmJZ3Y9noTVvwavcKRo6NH3G5s09vDfeJhj9KpCOlKQsELruoTNuohFKNs" "https://api.domeneshop.no/v0/dyndns/update?hostname=databoysxko.codexenmo.no&myip=51.120.13.32"
+
+
+
+RPi:
+ssh enmo@7.tcp.eu.ngrok.io -p 17255
+
+
+
+https://{heytDI6dBJVcUQHV}:{ekNjmFzmJZ3Y9noTVvwavcKRo6NH3G5s09vDfeJhj9KpCOlKQsELruoTNuohFKNs}@api.domeneshop.no/v0/dyndns/update?hostname=codexenmo.no&myip=192.168.1.110
+
+curl -u "heytDI6dBJVcUQHV:ekNjmFzmJZ3Y9noTVvwavcKRo6NH3G5s09vDfeJhj9KpCOlKQsELruoTNuohFKNs" "https://api.domeneshop.no/v0/dyndns/update?hostname=rpi1.gr9.codexenmo.no&myip=192.168.1.110"
+
+ping rpi1.gr9.codexenmo.no
+nslookup rpi1.gr9.codexenmo.no
+
+curl -u "heytDI6dBJVcUQHV:ekNjmFzmJZ3Y9noTVvwavcKRo6NH3G5s09vDfeJhj9KpCOlKQsELruoTNuohFKNs" "https://api.domeneshop.no/v0/dyndns/update?hostname=rpi1.gr9.codexenmo.no&myip=51.120.13.32:8081"
