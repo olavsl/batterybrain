@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 // Specify the path to the SQLite database outside the root directory
-const dbPath = path.join(__dirname, '../../RPIs.db'); 
+const dbPath = path.join(process.env.HOME, 'RPIs.db');
 if (!fs.existsSync(dbPath)) {
     fs.writeFileSync(dbPath, ''); // Create an empty file
     console.log(`Created database file: ${dbPath}`);
@@ -43,5 +43,5 @@ app.get('/api/rpis', (req, res) => {
 
 // Start the server
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 });
