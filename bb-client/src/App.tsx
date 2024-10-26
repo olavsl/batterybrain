@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import RPiButtons from './RPiButtons';
+import RPiButtons from './components/RPiButtons';
 
 function App() {
   return (

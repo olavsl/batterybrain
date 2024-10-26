@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { fetchAllRPis } from './services/RPiDBService'; // Import the API service
-import { RPi } from './types/Rpi';
-import { mockData } from './data/mockData';
+import { fetchAllRPis } from '../services/RPiDBService'; // Import the API service
+import { RPi } from '../types/Rpi';
+import { mockData } from '../data/mockData';
 
 const RPiButtons = () => {
   const [rpis, setRpis] = useState<RPi[]>([]);
