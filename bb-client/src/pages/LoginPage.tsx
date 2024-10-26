@@ -4,17 +4,20 @@ import { useNavigate } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
 import { User } from '../types/User';
 import axios from 'axios';
+import GoogleButton from 'react-google-button';
 
 const LoginPage: React.FC = () => {
   const { setProfile } = useUser();
   const navigate = useNavigate();
-  const [userToken, setUserToken] = useState<string | null>(null); // Store only the access token
+  const [userToken, setUserToken] = useState<string | null>(null);
 
+  // Set up Google login
   const login = useGoogleLogin({
     onSuccess: (tokenResponse) => setUserToken(tokenResponse.access_token),
-    onError: (error) => console.log('Login Failed:', error),
+    onError: (error) => console.error('Google Login Failed:', error),
   });
 
+  // Fetch user profile if token is available
   useEffect(() => {
     if (userToken) {
       axios
@@ -38,7 +41,7 @@ const LoginPage: React.FC = () => {
           localStorage.setItem('isAuthenticated', 'true');
           navigate('/dashboard'); // Redirect to dashboard after login
         })
-        .catch((err) => console.log('Error fetching user profile:', err));
+        .catch((err) => console.error('Error fetching user profile:', err));
     }
   }, [userToken, navigate, setProfile]);
 
@@ -46,12 +49,7 @@ const LoginPage: React.FC = () => {
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md bg-white p-8 shadow-md rounded">
         <h2 className="text-2xl font-bold mb-6 text-primary">Log In</h2>
-        <button
-          onClick={() => login()}
-          className="w-full px-4 py-2 bg-primary text-white rounded"
-        >
-          Sign in with Google 🚀
-        </button>
+        <GoogleButton onClick={() => login()} label="Sign in with Google" />
       </div>
     </div>
   );
