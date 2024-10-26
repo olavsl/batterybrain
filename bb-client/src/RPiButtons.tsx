@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
 const RPiButtons = () => {
-    const [rpis, setRpis] = useState([]);
+    const [rpis, setRpis] = useState<Rpi[]>([]);
 
     useEffect(() => {
         fetch('http://databoysxko.codexenmo.no:8081/api/rpis')
             .then(response => response.json())
-            .then(data => setRpis(data))
+            .then((data: Rpi[]) => setRpis(data))
             .catch(error => console.error('Error fetching RPi data:', error));
     }, []);
 
