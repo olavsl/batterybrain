@@ -6,7 +6,7 @@ const RPiButtons = () => {
     const [rpis, setRpis] = useState<RPi[]>([]);
 
     useEffect(() => {
-        fetch('http://databoysxko.codexenmo.no:3001/api/rpis')
+        fetch('/api/rpis')
         //fetch('http://localhost:5000/api/rpis')
 
             .then(response => response.json())
