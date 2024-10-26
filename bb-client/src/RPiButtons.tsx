@@ -6,16 +6,17 @@ const RPiButtons = () => {
     const [rpis, setRpis] = useState<RPi[]>([]);
 
     useEffect(() => {
-        fetch('/api/rpis')
-        //fetch('http://localhost:5000/api/rpis')
-
-            .then(response => response.json())
-            .then((data) => {
-                console.log('Fetched data:', data); // Add this line
+        const getData = async () => {
+            try {
+                const data = await fetchAllRPis();
+                console.log('Fetched data:', data); // Log the fetched data
                 setRpis(Array.isArray(data) ? data : []); // Ensure data is an array
-            })
-            .catch(error => console.error('Error fetching RPi data:', error));
+            } catch (error) {
+                console.error('Error fetching RPi data:', error);
+            }
+        };
 
+        getData();
     }, []);
 
     return (
