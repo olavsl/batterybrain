@@ -1,5 +1,6 @@
 export type RPi = {
-    mac_address: string;
+    id: number;
+    //mac_address: string;
     subdomain: string;
-    last_updated: string;
+    //last_updated: string;
 };
