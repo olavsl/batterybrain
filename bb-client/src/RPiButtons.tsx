@@ -7,7 +7,10 @@ const RPiButtons = () => {
     useEffect(() => {
         fetch('http://databoysxko.codexenmo.no:8081/api/rpis')
             .then(response => response.json())
-            .then((data: RPi[]) => setRpis(data))
+            .then((data) => {
+                console.log('Fetched data:', data); // Add this line
+                setRpis(Array.isArray(data) ? data : []); // Ensure data is an array
+            })
             .catch(error => console.error('Error fetching RPi data:', error));
     }, []);
 
