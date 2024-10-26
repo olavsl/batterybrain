@@ -6,6 +6,8 @@ const RPiButtons = () => {
 
     useEffect(() => {
         fetch('http://databoysxko.codexenmo.no:8081/api/rpis')
+        //fetch('http://localhost:5000/api/rpis')
+
             .then(response => response.json())
             .then((data) => {
                 console.log('Fetched data:', data); // Add this line
@@ -18,10 +20,10 @@ const RPiButtons = () => {
         <div>
             {rpis.map(rpi => (
                 <button
-                    key={rpi.id}
-                    onClick={() => window.location.href = `http://${rpi.subdomain}`}
+                    key={rpi.mac_address}
+                    onClick={() => window.location.href = `http://${rpi.subdomain}.gr9.codexenmo.no/`}
                 >
-                    {rpi.id}
+                    {rpi.subdomain}
                 </button>
             ))}
         </div>
