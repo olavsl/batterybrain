@@ -36,7 +36,7 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <div className="text-2xl font-bold">
-          <Link to="/">MyApp</Link>
+          <Link to="/">BætteryBrainz</Link>
         </div>
 
         {/* Links and Profile */}
