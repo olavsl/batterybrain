@@ -8,6 +8,7 @@ module.exports = {
       colors: {
         background: 'var(--color-background)',
         text: 'var(--color-text)',
+        header: 'var(--color-header)',
       },
     },
   },

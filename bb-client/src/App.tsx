@@ -1,15 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import RPiButtons from './components/RPiButtons';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom';
+import Layout from './components/Layout';
+import Dashboard from './pages/Dashboard';
+import NotFound from './pages/NotFound';
+import Landing from './pages/LandingPage';
+import Login from './pages/LoginPage';
+import { isAuthenticated } from './services/LoginService';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="bg-background text-text">
-      <h1 className="text-7xl">Dine enheter</h1>
-      <RPiButtons />
-    </div>
+    <Router>
+      <Routes>
+        {/* Public Routes */}
+        <Route path="/" element={<Landing />} />
+        <Route path="/login" element={<Login />} />
+
+        {/* Protected Routes */}
+        {isAuthenticated() ? (
+          <Route element={<Layout />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        ) : (
+          <Route path="*" element={<Navigate to="/login" />} /> // Redirect unauthorized access to login
+        )}
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
