@@ -10,7 +10,7 @@ const Landing: React.FC = () => {
       </p>
       <Link
         to="/login"
-        className="px-6 py-3 bg-primary text-white rounded hover:bg-accent"
+        className="px-6 py-3 bg-primary text-text rounded hover:bg-accent"
       >
         Log In
       </Link>

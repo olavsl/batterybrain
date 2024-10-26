@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { authenticate, isAuthenticated } from '../services/LoginService';
+import { authenticate } from '../services/LoginService';
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState('');
@@ -10,21 +10,15 @@ const Login: React.FC = () => {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    const loginSuccess = authenticate(username, password);
+    const isAuthenticated = authenticate(username, password);
 
-    if (loginSuccess) {
-      navigate('/dashboard'); // Navigate to the dashboard on successful login
+    if (isAuthenticated) {
+      // Redirect to the dashboard on successful login
+      navigate('/dashboard');
     } else {
       setError('Invalid username or password');
     }
   };
-
-  // Automatically redirect to dashboard if already authenticated
-  useEffect(() => {
-    if (isAuthenticated()) {
-      navigate('/dashboard');
-    }
-  }, [navigate]);
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
