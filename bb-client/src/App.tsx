@@ -8,7 +8,6 @@ import {
 import Layout from './components/Layout';
 import Dashboard from './pages/Dashboard';
 import NotFound from './pages/NotFound';
-import Landing from './pages/LandingPage';
 import Login from './pages/LoginPage';
 import { isAuthenticated } from './services/LoginService';
 
@@ -17,7 +16,7 @@ const App: React.FC = () => {
     <Router>
       <Routes>
         {/* Public Routes */}
-        <Route path="/" element={<Landing />} />
+        <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<Login />} />
 
         {/* Protected Routes */}

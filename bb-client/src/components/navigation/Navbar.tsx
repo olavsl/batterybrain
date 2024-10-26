@@ -22,7 +22,7 @@ const Navbar: React.FC = () => {
     googleLogout();
     setProfile(null);
     localStorage.removeItem('isAuthenticated');
-    navigate('/'); // Redirect to login page after logout
+    navigate('/');
   };
 
   useEffect(() => {
@@ -32,20 +32,16 @@ const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <nav className="bg-header p-4">
+    <nav className="bg-header p-2">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <div className="text-2xl font-bold">
-          <Link to="/">BætteryBrainz</Link>
+          <Link to="/dashboard">BætteryBrainz</Link>
         </div>
 
         {/* Links and Profile */}
         {profile && (
           <div className="flex items-center space-x-6 relative">
-            <Link to="/dashboard" className="hover:text-text">
-              Dashboard
-            </Link>
-
             {/* Profile Icon with Dropdown Wrapper */}
             <div
               className="relative"
