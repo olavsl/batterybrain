@@ -5,11 +5,9 @@ import RPiButtons from './RPiButtons';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Dine enheter</h1>
+    <div className="bg-background text-text">
+        <h1 className="text-7xl">Dine enheter</h1>
         <RPiButtons />
-      </header>
     </div>
   );
 }
