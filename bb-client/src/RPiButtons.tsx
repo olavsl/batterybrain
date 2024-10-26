@@ -23,7 +23,7 @@ const RPiButtons = () => {
         <div>
             {rpis.map(rpi => (
                 <button
-                    key={rpi.id}
+                    key={rpi.mac_address}
                     onClick={() => window.location.href = `http://${rpi.subdomain}.gr9.codexenmo.no/`}
                 >
                     {rpi.subdomain}
