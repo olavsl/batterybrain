@@ -1,0 +1,78 @@
+On the Azure VM, do the following:
+1. $ sudo nano /etc/ssh/sshd_config
+	Make sure it contains the line "GatewayPorts yes" (might be set to "#GatewayPorts no" by default)
+2. Try:
+	$ sudo systemctl restart sshh
+   If output is:
+	Failed to restart sshd.service: Unit sshd.service not found.
+   Try:
+	$ sudo systemctl restart ssh
+3. $ sudo nano /etc/nginx/sites-available/default
+
+The file should look like this:
+
+"""
+	server {
+    		listen XXXX; # What it says here doesn't affect anything
+
+    		location / {
+        		proxy_pass http://localhost:8080;
+        		proxy_set_header Host $host;
+        		proxy_set_header X-Real-IP $remote_addr;
+        		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        		proxy_set_header X-Forwarded-Proto $scheme;
+   		}
+	}
+"""
+
+
+On the Raspberry Pi, do the following:
+1. $ sudo nano /etc/nginx/sites-available/default
+
+The file should look like this:
+
+"""
+server {
+    listen 8080 default_server;
+    listen [::]:8080 default_server;
+
+    root /var/www/html;
+    index index.html index.htm index.nginx-debian.html;
+
+    server_name _;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    # Uncomment the following lines to allow access to .htpasswd protected directories
+    # location /secure/ {
+    #     auth_basic "Restricted Access";
+    #     auth_basic_user_file /etc/nginx/.htpasswd;
+    # }
+
+    # Uncomment the following block to allow proxy pass to another server
+    # location / {
+    #     proxy_pass http://localhost:3000;
+    #     proxy_http_version 1.1;
+    #     proxy_set_header Upgrade $http_upgrade;
+    #     proxy_set_header Connection 'upgrade';
+    #     proxy_set_header Host $host;
+    #     proxy_cache_bypass $http_upgrade;
+    # }
+
+    # For HTTPS (if needed, replace `default_server` with SSL configuration)
+    # listen 443 ssl default_server;
+    # listen [::]:443 ssl default_server;
+    # include snippets/snakeoil.conf;
+}
+"""
+
+2. Run this command to set up the reverse tunnel:
+	$ ssh -R 8081:localhost:8080 group9@51.120.13.32
+
+Now you should be able to access the Raspberry Pi content from the VMs IP address with the correct port number, e.g., "http://51.120.13.32:8081/"
+
+
+Useful links:
+https://blog.jakuba.net/ssh-tunnel---local-remote-and-dynamic-port-forwarding/
