@@ -16,13 +16,12 @@ const RPiButtons = () => {
 
     return (
         <div>
-            <h2>Connect to Raspberry Pis</h2>
             {rpis.map(rpi => (
                 <button
                     key={rpi.id}
                     onClick={() => window.location.href = `http://${rpi.subdomain}`}
                 >
-                    Connect to {rpi.id}
+                    {rpi.id}
                 </button>
             ))}
         </div>
