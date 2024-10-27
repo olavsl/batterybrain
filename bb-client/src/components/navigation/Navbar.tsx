@@ -22,7 +22,6 @@ const Navbar: React.FC = () => {
   const handleLogout = () => {
     googleLogout();
     setProfile(null);
-    localStorage.removeItem('isAuthenticated');
     navigate('/');
   };
 

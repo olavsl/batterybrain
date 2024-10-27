@@ -9,7 +9,7 @@ import Layout from './components/Layout';
 import Dashboard from './pages/Dashboard';
 import NotFound from './pages/NotFound';
 import Login from './pages/LoginPage';
-import { isAuthenticated } from './services/LoginService';
+import ProtectedRoute from './components/navigation/ProtectedRoute'; // Import ProtectedRoute
 import './App.css';
 
 const App: React.FC = () => {
@@ -17,18 +17,18 @@ const App: React.FC = () => {
     <Router>
       <Routes>
         {/* Public Routes */}
-        <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<Login />} />
 
         {/* Protected Routes */}
-        {isAuthenticated() ? (
+        <Route element={<ProtectedRoute />}>
           <Route element={<Layout />}>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="*" element={<NotFound />} />
           </Route>
-        ) : (
-          <Route path="*" element={<Navigate to="/login" />} /> // Redirect unauthorized access to login
-        )}
+        </Route>
+
+        {/* Default Redirect */}
+        <Route path="/" element={<Navigate to="/login" />} />
       </Routes>
     </Router>
   );

@@ -34,7 +34,6 @@ const LoginPage: React.FC = () => {
         picture: data.picture,
       };
       setProfile(userProfile);
-      localStorage.setItem('isAuthenticated', 'true');
       navigate('/dashboard'); // Redirect after login
     } catch (error) {
       console.error('Error fetching user profile:', error);
