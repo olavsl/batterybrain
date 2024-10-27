@@ -3,20 +3,20 @@ import SemiCircleProgress from './SemiCircleProgress';
 
 interface RPiButtonProps {
   subdomain: string;
-  last_updated: string;
+  last_update: string;
   last_battery_lvl: number;
 }
 
 export const RPiButton = ({
   subdomain,
-  last_updated,
+  last_update,
   last_battery_lvl,
 }: RPiButtonProps) => {
   const url = `http://${subdomain}.gr9.codexenmo.no/`;
-  const tmp = last_updated.split(' ');
+  const tmp = last_update.split(' ');
   const date = tmp[0].split('-');
   const time = tmp[1].split(':');
-  const last_updated_date = new Date(
+  const last_update_date = new Date(
     parseInt(date[0]),
     parseInt(date[1]) - 1,
     parseInt(date[2]),
@@ -26,7 +26,7 @@ export const RPiButton = ({
   );
   const now = new Date();
   const diffSeconds = Math.floor(
-    (now.getTime() - last_updated_date.getTime()) / 1000
+    (now.getTime() - last_update_date.getTime()) / 1000
   );
   const diffMinutes = Math.floor(diffSeconds / 60);
   const diffHours = Math.floor(diffMinutes / 60);
@@ -64,7 +64,7 @@ export const RPiButton = ({
           </div>
           <div className="w-full flex flex-col items-end">
             <h4 className="text-sm text-text-400">Sist oppdatert:</h4>
-            <h4 className="text-sm text-text-500">{last_updated}</h4>
+            <h4 className="text-sm text-text-500">{last_update}</h4>
           </div>
         </div>
       </div>
