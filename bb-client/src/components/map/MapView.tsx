@@ -56,7 +56,7 @@ const MapView: React.FC<MapViewProps> = ({ rpis }) => {
             <Popup>
               <div>
                 <h2>{rpi.subdomain}</h2>
-                <p>Last updated: {rpi.last_updated}</p>
+                <p>Last updated: {rpi.last_update}</p>
                 <p>Battery level: {rpi.last_battery_lvl}%</p>
               </div>
             </Popup>

@@ -2,7 +2,7 @@ export const mockData = [
   {
     mac_address: '00:00:00:00:00:00',
     subdomain: 'rpi1',
-    last_updated: '2024-10-27 02:30:03',
+    last_update: '2024-10-27 02:30:03',
     last_battery_lvl: 65,
     latitude: 59.911491,
     longitude: 10.757933,
@@ -10,7 +10,7 @@ export const mockData = [
   {
     mac_address: '00:00:00:00:00:01',
     subdomain: 'rpi2',
-    last_updated: '2024-10-25 14:06:03',
+    last_update: '2024-10-25 14:06:03',
     last_battery_lvl: 17,
     latitude: 51.5074,
     longitude: 0.1278,
@@ -18,7 +18,7 @@ export const mockData = [
   {
     mac_address: '00:00:00:00:00:02',
     subdomain: 'rpi3',
-    last_updated: '2024-10-26 08:06:03',
+    last_update: '2024-10-26 08:06:03',
     last_battery_lvl: 87,
     latitude: 12.9716,
     longitude: 77.5946,
@@ -26,7 +26,7 @@ export const mockData = [
   {
     mac_address: '00:00:00:00:00:03',
     subdomain: 'rpi4',
-    last_updated: '2024-10-26 08:06:03',
+    last_update: '2024-10-26 08:06:03',
     last_battery_lvl: 87,
     latitude: 37.7749,
     longitude: -122.4194,
@@ -34,7 +34,7 @@ export const mockData = [
   {
     mac_address: '00:00:00:00:00:04',
     subdomain: 'rpi5',
-    last_updated: '2024-10-26 08:06:03',
+    last_update: '2024-10-26 08:06:03',
     last_battery_lvl: 87,
     latitude: 35.6895,
     longitude: 139.6917,
@@ -42,7 +42,7 @@ export const mockData = [
   {
     mac_address: '00:00:00:00:00:05',
     subdomain: 'rpi6',
-    last_updated: '2024-10-26 08:06:03',
+    last_update: '2024-10-26 08:06:03',
     last_battery_lvl: 87,
     latitude: 22.3193,
     longitude: 114.1694,
@@ -50,7 +50,7 @@ export const mockData = [
   {
     mac_address: '00:00:00:00:00:06',
     subdomain: 'rpi7',
-    last_updated: '2024-10-26 08:06:03',
+    last_update: '2024-10-26 08:06:03',
     last_battery_lvl: 87,
     latitude: 1.3521,
     longitude: 103.8198,
@@ -58,7 +58,7 @@ export const mockData = [
   {
     mac_address: '00:00:00:00:00:07',
     subdomain: 'rpi8',
-    last_updated: '2024-10-26 08:06:03',
+    last_update: '2024-10-26 08:06:03',
     last_battery_lvl: 87,
     latitude: 40.7128,
     longitude: -74.006,
@@ -66,7 +66,7 @@ export const mockData = [
   {
     mac_address: '00:00:00:00:00:08',
     subdomain: 'rpi9',
-    last_updated: '2024-10-26 08:06:03',
+    last_update: '2024-10-26 08:06:03',
     last_battery_lvl: 87,
     latitude: 34.0522,
     longitude: -118.2437,
@@ -74,7 +74,7 @@ export const mockData = [
   {
     mac_address: '00:00:00:00:00:09',
     subdomain: 'rpi10',
-    last_updated: '2024-10-26 08:06:03',
+    last_update: '2024-10-26 08:06:03',
     last_battery_lvl: 87,
     latitude: 51.5074,
     longitude: -0.1278,
@@ -82,7 +82,7 @@ export const mockData = [
   {
     mac_address: '00:00:00:00:00:10',
     subdomain: 'rpi11',
-    last_updated: '2024-10-26 08:06:03',
+    last_update: '2024-10-26 08:06:03',
     last_battery_lvl: 87,
     latitude: 55.7558,
     longitude: 37.6176,
@@ -90,7 +90,7 @@ export const mockData = [
   {
     mac_address: '00:00:00:00:00:11',
     subdomain: 'rpi12',
-    last_updated: '2024-10-26 08:06:03',
+    last_update: '2024-10-26 08:06:03',
     last_battery_lvl: 87,
     latitude: 59.3293,
     longitude: 18.0686,
@@ -98,7 +98,7 @@ export const mockData = [
   {
     mac_address: '00:00:00:00:00:12',
     subdomain: 'rpi13',
-    last_updated: '2024-10-26 08:06:03',
+    last_update: '2024-10-26 08:06:03',
     last_battery_lvl: 87,
     latitude: 52.52,
     longitude: 13.405,
@@ -106,7 +106,7 @@ export const mockData = [
   {
     mac_address: '00:00:00:00:00:13',
     subdomain: 'rpi14',
-    last_updated: '2024-10-26 08:06:03',
+    last_update: '2024-10-26 08:06:03',
     last_battery_lvl: 87,
     latitude: 48.8566,
     longitude: 2.3522,
@@ -114,7 +114,7 @@ export const mockData = [
   {
     mac_address: '00:00:00:00:00:14',
     subdomain: 'rpi15',
-    last_updated: '2024-10-26 08:06:03',
+    last_update: '2024-10-26 08:06:03',
     last_battery_lvl: 87,
     latitude: 37.7749,
     longitude: -122.4194,
@@ -122,7 +122,7 @@ export const mockData = [
   {
     mac_address: '00:00:00:00:00:15',
     subdomain: 'rpi16',
-    last_updated: '2024-10-26 08:06:03',
+    last_update: '2024-10-26 08:06:03',
     last_battery_lvl: 87,
     latitude: 35.6895,
     longitude: 139.6917,
@@ -130,7 +130,7 @@ export const mockData = [
   {
     mac_address: '00:00:00:00:00:16',
     subdomain: 'rpi17',
-    last_updated: '2024-10-26 08:06:03',
+    last_update: '2024-10-26 08:06:03',
     last_battery_lvl: 87,
     latitude: 22.3193,
     longitude: 114.1694,

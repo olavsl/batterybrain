@@ -13,7 +13,7 @@ const RPiButtons: React.FC<RPiButtonsProps> = ({ rpis }) => {
         <RPiButton
           key={rpi.mac_address} // `key` is only used here for React's list rendering
           subdomain={rpi.subdomain}
-          last_updated={rpi.last_updated}
+          last_updated={rpi.last_update}
           last_battery_lvl={rpi.last_battery_lvl}
         />
       ))}

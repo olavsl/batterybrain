@@ -19,7 +19,7 @@ const Dashboard: React.FC = () => {
         const fetchedRPis = data.map((rpi: RPi) => ({
           mac_address: rpi.mac_address,
           subdomain: rpi.subdomain,
-          last_updated: rpi.last_updated,
+          last_updated: rpi.last_update,
           last_battery_lvl:
             rpi.last_battery_lvl || Math.floor(Math.random() * 100) + 1,
           latitude: rpi.latitude || Math.random() * 180 - 90,
