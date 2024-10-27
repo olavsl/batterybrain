@@ -123,19 +123,19 @@ In the project directory, you can run:
 (Add screenshots of your application here to illustrate the UI and features)
 
 ### Login Page
-![Image of login page](image.png)
+![Image of login page](bb-client/public/image.png)
 
 ### Dashboard - Light mode
-![Image of dashboard in light mode](image-1.png)
+![Image of dashboard in light mode](bb-client/public/image-1.png)
 
 ### Dashboard - Dark mode
-![Image of dashboard in dark mode](image-2.png)
+![Image of dashboard in dark mode](bb-client/public/image-2.png)
 
 ### Hover Raspberry PI unit
-![alt text](image-3.png)
+![alt text](bb-client/public/image-3.png)
 
 ### Map with Device Markers
-![alt text](image-4.png)
+![alt text](bb-client/public/image-4.png)
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
