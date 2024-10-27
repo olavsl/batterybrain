@@ -5,6 +5,7 @@ Welcome to **BætteryBrainz**, a dashboard application designed to manage and mo
 ## Table of Contents
 - [Features](#features)
 - [Tech Stack](#tech-stack)
+- [System architecture](#system-architecture)
 - [Setup and Installation](#setup-and-installation)
 - [Google OAuth Setup](#google-oauth-setup)
 - [Folder Structure](#folder-structure)
@@ -27,6 +28,9 @@ Welcome to **BætteryBrainz**, a dashboard application designed to manage and mo
 - **Frontend**: React, TypeScript, Tailwind CSS, Leaflet (for map integration)
 - **Backend**: Google OAuth API for authentication
 - **Other Libraries**: `@react-oauth/google`, `react-router-dom`, `axios`
+
+## System architecture
+![Image of the system architecture](bb-client/public/readme_images/Architecture%20Diagram.png)
 
 ## Setup and Installation
 
@@ -75,15 +79,27 @@ REACT_APP_GOOGLE_CLIENT_ID.
 ```plaintext
 .
 ├── src
-│   ├── components       # Reusable components like Navbar, ProtectedRoute, etc.
-│   ├── contexts         # Context providers, e.g., UserContext for authentication
-│   ├── pages            # Application pages (LoginPage, Dashboard, etc.)
-│   ├── services         # API service files, e.g., for Google authentication
-│   ├── types            # TypeScript types and interfaces
-│   ├── App.tsx          # Main app component with route definitions
-│   ├── index.tsx        # Main entry point
-│   └── App.css          # Global styles
-└── README.md            # Project README file
+│   ├── assets                # Static files like images, icons, and fonts
+│   ├── components            # Reusable components such as Navbar, ThemeToggle, and ProtectedRoute
+│   ├── contexts              # React Context providers, e.g., UserContext for managing authentication state
+│   ├── data                  # Mock data files used for development and testing
+│   ├── hooks                 # Custom React hooks for reusable logic
+│   ├── pages                 # Main pages of the app (LoginPage, Dashboard, NotFound, etc.)
+│   ├── services              # API service files, e.g., for handling Google authentication and other external requests
+│   ├── types                 # TypeScript type definitions and interfaces used throughout the app
+│   ├── utils                 # Utility functions and helper code for common tasks
+│   ├── App.tsx               # Main App component where routes are defined
+│   ├── index.tsx             # Application entry point, rendering the App component
+│   ├── App.css               # Global styles
+│   └── index.css             # Tailwind and custom CSS configurations
+├── public
+│   ├── readme_images         # Images for the root readme file of this project
+│   ├── login.webp            # Background image for the login page
+│   ├── favicon.ico           # Favicon for the app
+│   ├── index.html            # HTML template for the app
+│   └── manifest.json         # Web app manifest for PWA configurations
+│   
+└── README.md                 # Project README file, detailing setup, usage, and other documentation
 ```
 
 ## Available Scripts
@@ -123,19 +139,19 @@ In the project directory, you can run:
 (Add screenshots of your application here to illustrate the UI and features)
 
 ### Login Page
-![Image of login page](image.png)
+![Image of login page](bb-client/public/readme_images/image.png)
 
 ### Dashboard - Light mode
-![Image of dashboard in light mode](image-1.png)
+![Image of dashboard in light mode](bb-client/public/readme_images/image-1.png)
 
 ### Dashboard - Dark mode
-![Image of dashboard in dark mode](image-2.png)
+![Image of dashboard in dark mode](bb-client/public/readme_images/image-2.png)
 
 ### Hover Raspberry PI unit
-![alt text](image-3.png)
+![alt text](bb-client/public/readme_images/image-3.png)
 
 ### Map with Device Markers
-![alt text](image-4.png)
+![alt text](bb-client/public/readme_images/image-4.png)
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
