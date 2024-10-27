@@ -26,6 +26,8 @@ const Dashboard: React.FC = () => {
           longitude: rpi.longitude || Math.random() * 360 - 180,
         }));
 
+        console.log('Fetched RPis:', fetchedRPis);
+
         setRpis(fetchedRPis);
       } catch (error) {
         console.error('Error fetching RPis:', error);
