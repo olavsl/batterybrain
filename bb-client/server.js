@@ -27,7 +27,7 @@ const db = new sqlite3.Database(dbPath, (err) => {
         console.error('Error opening database: ' + err.message);
     } else {
         console.log('Connected to the SQLite database.');
-        // Create a table if it doesn't exist
+        // Create a table if it does not exist
         db.run(`CREATE TABLE IF NOT EXISTS raspberry_pis (
                 mac_address TEXT PRIMARY KEY,
                 last_update TEXT,
