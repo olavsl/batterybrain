@@ -8,7 +8,7 @@ interface RPiButtonsProps {
 
 const RPiButtons: React.FC<RPiButtonsProps> = ({ rpis }) => {
   return (
-    <div className="h-96 overflow-y-scroll scrollable-container overflow-x-hidden w-full px-10 pt-3 flex flex-col items-center gap-3">
+    <div className="h-[600px] overflow-y-scroll scrollable-container overflow-x-hidden w-full px-10 pt-3 flex flex-col items-center gap-3">
       {rpis.map((rpi) => (
         <RPiButton
           key={rpi.mac_address} // `key` is only used here for React's list rendering

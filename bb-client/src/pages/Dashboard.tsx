@@ -4,6 +4,7 @@ import MapView from '../components/map/MapView';
 import { RPi } from '../types/Rpi';
 import { fetchAllRPis } from '../services/RPiDBService';
 import { mockData } from '../data/mockData';
+import StatCard from '../components/stats/StatCard';
 
 const Dashboard: React.FC = () => {
   const [rpis, setRpis] = useState<RPi[]>([]);
@@ -49,6 +50,18 @@ const Dashboard: React.FC = () => {
     tags.some((tag) => rpi.subdomain.toLowerCase().includes(tag.toLowerCase()))
   );
 
+  // Online RPis
+  const onlineRPis = rpis.filter(
+    (rpi) =>
+      typeof rpi.last_update === 'number' &&
+      new Date().getTime() - rpi.last_update < 600
+  );
+
+  // Average battery level
+  const avgBatteryLevel = Math.round(
+    rpis.reduce((acc, rpi) => acc + rpi.last_battery_lvl, 0) / rpis.length
+  );
+
   // Handle adding a new tag on Enter key press
   const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter' && searchQuery.trim() !== '') {
@@ -63,18 +76,15 @@ const Dashboard: React.FC = () => {
   };
 
   return (
-    <div className="p-12 flex gap-12">
+    <div className="p-12 pt-6 flex gap-12">
       <div className="w-1/2">
-        <h1 className="text-7xl text-start text-text-100 mb-8">
+        <h1 className="text-5xl text-start text-text-100 mb-8">
           Your Raspberry PIs
         </h1>
 
         {/* Search and Tag Input */}
         <div className="w-full">
           <div className="flex flex-col gap-2">
-            <label htmlFor="search" className="text-text-100">
-              Search for a Raspberry PI
-            </label>
             <input
               type="text"
               placeholder="Add a tag and press Enter"
@@ -104,7 +114,7 @@ const Dashboard: React.FC = () => {
         </div>
 
         {/* RPi Buttons */}
-        <div className="w-full ">
+        <div className="w-full">
           <RPiButtons
             rpis={
               filteredRPis.length === 0 && tags.length === 0
@@ -116,7 +126,12 @@ const Dashboard: React.FC = () => {
       </div>
 
       {/* Map View with All Filtered RPis */}
-      <div className="w-1/2">
+      <div className="w-1/2 flex flex-col gap-0">
+        <div className="flex justify-between items-center">
+          <StatCard title="Total RPis" value={rpis.length} />
+          <StatCard title="Online RPis" value={onlineRPis.length} />
+          <StatCard title="Avg. Battery Level" value={avgBatteryLevel} />
+        </div>
         <MapView
           rpis={
             filteredRPis.length === 0 && tags.length === 0 ? rpis : filteredRPis
