@@ -9,13 +9,17 @@ const ThemeToggle: React.FC = () => {
     <button
       onClick={toggleTheme}
       aria-label="Toggle Dark Mode"
-      className="p-2 rounded-md focus:outline-none focus:ring"
+      className="p-2 rounded-md focus:outline-none hover:bg-background-300 active:bg-background-400 transition-colors"
     >
-      {darkMode ? (
-        <MdLightMode className="text-yellow-400" />
-      ) : (
-        <MdDarkMode className="text-blue-600" />
-      )}
+      <div
+        className={`transition-transform duration-500 ${darkMode ? 'rotate-180' : 'rotate-0'}`}
+      >
+        {darkMode ? (
+          <MdLightMode className="text-yellow-400" />
+        ) : (
+          <MdDarkMode className="text-blue-600" />
+        )}
+      </div>
     </button>
   );
 };

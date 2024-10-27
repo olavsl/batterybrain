@@ -14,7 +14,18 @@ const Dashboard: React.FC = () => {
       // setRpis(mockData); // Simulate data fetch; replace with API call if needed
       try {
         const data = await fetchAllRPis();
-        setRpis(Array.isArray(data) ? data : []);
+
+        const fetchedRPis = data.map((rpi: RPi) => ({
+          mac_address: rpi.mac_address,
+          subdomain: rpi.subdomain,
+          last_updated: rpi.last_updated,
+          last_battery_lvl:
+            rpi.last_battery_lvl || Math.floor(Math.random() * 100) + 1,
+          latitude: rpi.latitude || Math.random() * 180 - 90,
+          longitude: rpi.longitude || Math.random() * 360 - 180,
+        }));
+
+        setRpis(fetchedRPis);
       } catch (error) {
         console.error('Error fetching RPis:', error);
       }
