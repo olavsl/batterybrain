@@ -30,6 +30,7 @@ const Dashboard: React.FC = () => {
         setRpis(combinedRPis);
       } catch (error) {
         console.error('Error fetching RPis:', error);
+        setRpis(mockData); // Use mock data if fetching fails
       }
     };
     getData();
