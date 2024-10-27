@@ -5,6 +5,7 @@ Welcome to **BætteryBrainz**, a dashboard application designed to manage and mo
 ## Table of Contents
 - [Features](#features)
 - [Tech Stack](#tech-stack)
+- [System architecture](#system-architecture)
 - [Setup and Installation](#setup-and-installation)
 - [Google OAuth Setup](#google-oauth-setup)
 - [Folder Structure](#folder-structure)
