@@ -3,7 +3,7 @@ import RPiButtons from '../components/RPiButtons';
 import MapView from '../components/map/MapView';
 import { RPi } from '../types/Rpi';
 import { fetchAllRPis } from '../services/RPiDBService';
-// import { mockData } from '../data/mockData';
+import { mockData } from '../data/mockData';
 
 const Dashboard: React.FC = () => {
   const [rpis, setRpis] = useState<RPi[]>([]);
@@ -12,7 +12,6 @@ const Dashboard: React.FC = () => {
 
   useEffect(() => {
     const getData = async () => {
-      // setRpis(mockData); // Simulate data fetch; replace with API call if needed
       try {
         const data = await fetchAllRPis();
 
@@ -27,9 +26,8 @@ const Dashboard: React.FC = () => {
           longitude: rpi.longitude || Math.random() * 360 - 180,
         }));
 
-        console.log('Fetched RPis:', fetchedRPis);
-
-        setRpis(fetchedRPis);
+        const combinedRPis = [...fetchedRPis, ...mockData]; // Combine fetched and mock data
+        setRpis(combinedRPis);
       } catch (error) {
         console.error('Error fetching RPis:', error);
       }
