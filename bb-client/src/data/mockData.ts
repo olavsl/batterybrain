@@ -4,9 +4,7 @@ const getRandomTimeInLast10Minutes = () => {
   const now = new Date();
   const randomOffset = Math.floor(Math.random() * 10 * 50 * 1000); // Random offset in milliseconds
   const randomTime = new Date(now.getTime() + 3600000 - randomOffset); // Random time in the last 10 minutes
-  const result = randomTime.toISOString().replace('T', ' ').split('.')[0];
-  console.log(result);
-  return result;
+  return randomTime.toISOString().replace('T', ' ').split('.')[0];
 };
 
 const getRandomTimeInPast = () => {
