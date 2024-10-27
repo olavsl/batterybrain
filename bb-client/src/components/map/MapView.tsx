@@ -6,7 +6,7 @@ import { RPi } from '../../types/Rpi';
 // Import the Leaflet CSS for proper marker styling
 import 'leaflet/dist/leaflet.css';
 
-// Create a custom icon
+// Create a custom icon for the battery marker
 const customIcon = new L.Icon({
   iconUrl: `${process.env.PUBLIC_URL}/battery_marker.png`, // Path to your custom marker icon
   iconSize: [35, 45], // Size of the icon
@@ -51,13 +51,22 @@ const MapView: React.FC<MapViewProps> = ({ rpis }) => {
           <Marker
             key={rpi.mac_address}
             position={[rpi.latitude, rpi.longitude]}
-            icon={customIcon} // Use the custom icon here
+            icon={customIcon}
           >
             <Popup>
-              <div>
-                <h2>{rpi.subdomain}</h2>
-                <p>Last updated: {rpi.last_update}</p>
-                <p>Battery level: {rpi.last_battery_lvl}%</p>
+              <div className="flex flex-col space-y-2 rounded-lg text-gray-800">
+                <h2 className="text-lg font-semibold text-gray-900">
+                  {rpi.subdomain}
+                </h2>
+                <p className="text-sm text-gray-600">
+                  Last updated: {rpi.last_update}
+                </p>
+                <p className="text-sm text-gray-600">
+                  Battery level: {rpi.last_battery_lvl}%
+                </p>
+                <p className="text-sm text-gray-600">
+                  Latitude: {rpi.latitude}, Longitude: {rpi.longitude}
+                </p>
               </div>
             </Popup>
           </Marker>
