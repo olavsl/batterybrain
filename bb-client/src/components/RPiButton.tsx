@@ -13,6 +13,7 @@ export const RPiButton = ({
   last_battery_lvl,
 }: RPiButtonProps) => {
   const url = `http://${subdomain}.gr9.codexenmo.no/`;
+  const shortenedUrl =  `${subdomain}.gr9.codexenmo.no`;
   const tmp = last_update.split(' ');
   const date = tmp[0].split('-');
   const time = tmp[1].split(':');
@@ -49,11 +50,11 @@ export const RPiButton = ({
       <div className="grid grid-cols-3 h-full justify-between px-4 py-3">
         <div className="col-span-1 h-full flex flex-col justify-between text-left">
           <h2 className="text-2xl text-text-100 mb-1">{subdomain}</h2>
-          <h3 className="text-sm text-text-400">{url}</h3>
+          <h3 className="text-sm text-text-400">{shortenedUrl}</h3>
         </div>
         <div className="col-span-1 flex flex-col justify-center">
           <SemiCircleProgress percentage={last_battery_lvl} />
-          <h4 className="text-sm text-text-400">Batteri</h4>
+          <h4 className="text-sm text-text-400">Battery</h4>
         </div>
         <div className="col-span-1 flex flex-col justify-between">
           <div className="flex flex-row w-full items-center justify-end">
@@ -63,7 +64,7 @@ export const RPiButton = ({
             ></div>
           </div>
           <div className="w-full flex flex-col items-end">
-            <h4 className="text-sm text-text-400">Sist oppdatert:</h4>
+            <h4 className="text-sm text-text-400">Last updated:</h4>
             <h4 className="text-sm text-text-500">{last_update}</h4>
           </div>
         </div>
