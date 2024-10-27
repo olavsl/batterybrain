@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { fetchAllRPis } from '../services/RPiDBService'; // Import the API service
+//import { fetchAllRPis } from '../services/RPiDBService'; // Import the API service
 import { RPi } from '../types/Rpi';
 import { mockData } from '../data/mockData';
+import { RPiButton } from './RPiButton';
 
 const RPiButtons = () => {
   const [rpis, setRpis] = useState<RPi[]>([]);
@@ -22,16 +23,14 @@ const RPiButtons = () => {
   }, []);
 
   return (
-    <div className="bg-text">
+    <div className="flex flex-col items-center">
       {rpis.map((rpi) => (
-        <button
+        <RPiButton
           key={rpi.mac_address}
-          onClick={() =>
-            (window.location.href = `http://${rpi.subdomain}.gr9.codexenmo.no/`)
-          }
-        >
-          {rpi.subdomain}
-        </button>
+          subdomain={rpi.subdomain}
+          last_updated={rpi.last_updated}
+          last_battery_lvl={rpi.last_battery_lvl}
+        />
       ))}
     </div>
   );
