@@ -2,8 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Light Mode Variables */
 :root {
-    --color-background: #ffffff;
-    --color-text: #212f43;
-    --color-header: #F3F4F6;
-  }
+  --color-background: #ffffff;
+  --color-text: #212f43;
+  --color-header: #f3f4f6;
+  --color-primary: #1e40af;
+  --color-accent: #3b82f6;
+}
+
+/* Dark Mode Variables */
+.dark {
+  --color-background: #1a202c;
+  --color-text: #e2e8f0;
+  --color-header: #2d3748;
+  --color-primary: #90cdf4;
+  --color-accent: #63b3ed;
+}
+
+/* Apply Variables to Tailwind Classes */
+.bg-background {
+  background-color: var(--color-background);
+}
+
+.text-text {
+  color: var(--color-text);
+}
+
+.bg-header {
+  background-color: var(--color-header);
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.hover\:bg-accent:hover {
+  background-color: var(--color-accent);
+}

@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { googleLogout } from '@react-oauth/google';
 import { useUser } from '../../contexts/UserContext';
+import ThemeToggle from '../ThemeToggle';
 
 const Navbar: React.FC = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -35,13 +36,15 @@ const Navbar: React.FC = () => {
     <nav className="bg-header p-2">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
-        <div className="text-2xl font-bold">
+        <div className="text-2xl font-bold text-text">
           <Link to="/dashboard">BætteryBrainz</Link>
         </div>
 
         {/* Links and Profile */}
         {profile && (
           <div className="flex items-center space-x-6 relative">
+            {/* Theme Toggle */}
+            <ThemeToggle />
             {/* Profile Icon with Dropdown Wrapper */}
             <div
               className="relative"
@@ -56,13 +59,11 @@ const Navbar: React.FC = () => {
 
               {/* Dropdown Menu */}
               {isDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10">
-                  <p className="px-4 py-2 text-sm text-gray-700">
-                    {profile.name}
-                  </p>
+                <div className="absolute right-0 mt-2 w-48 bg-background rounded-md shadow-lg z-10">
+                  <p className="px-4 py-2 text-sm text-text">{profile.name}</p>
                   <button
                     onClick={handleLogout}
-                    className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    className="block w-full text-left px-4 py-2 text-sm text-text hover:text-background hover:bg-text"
                   >
                     Logout
                   </button>

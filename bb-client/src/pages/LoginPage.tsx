@@ -52,7 +52,7 @@ const LoginPage: React.FC = () => {
     <div className="h-full grid grid-cols-1 md:grid-cols-3">
       {/* Login Section */}
       <div className="col-span-1 h-full z-20 flex flex-col items-center justify-center bg-background">
-        <div className="absolute top-3 left-3 text-2xl font-bold">
+        <div className="absolute top-3 left-3 text-2xl font-bold text-text">
           BætteryBrainz
         </div>
         <div className="flex flex-col items-start">
