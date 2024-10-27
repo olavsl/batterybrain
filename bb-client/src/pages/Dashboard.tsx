@@ -27,10 +27,14 @@ const Dashboard: React.FC = () => {
         }));
 
         const filteredMockData = mockData.filter(
-          (mockRpi) => !fetchedRPis.some((fetchedRpi: { subdomain: string; }) => fetchedRpi.subdomain === mockRpi.subdomain)
+          (mockRpi) =>
+            !fetchedRPis.some(
+              (fetchedRpi: { subdomain: string }) =>
+                fetchedRpi.subdomain === mockRpi.subdomain
+            )
         );
 
-        const combinedRPis =[...fetchedRPis, ...filteredMockData]; // Combine fetched and mock data
+        const combinedRPis = [...fetchedRPis, ...filteredMockData]; // Combine fetched and mock data
         setRpis(combinedRPis);
       } catch (error) {
         console.error('Error fetching RPis:', error);

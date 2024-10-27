@@ -13,7 +13,7 @@ export const RPiButton = ({
   last_battery_lvl,
 }: RPiButtonProps) => {
   const url = `http://${subdomain}.gr9.codexenmo.no/`;
-  const shortenedUrl =  `${subdomain}.gr9.codexenmo.no`;
+  const shortenedUrl = `${subdomain}.gr9.codexenmo.no`;
   const tmp = last_update.split(' ');
   const date = tmp[0].split('-');
   const time = tmp[1].split(':');
