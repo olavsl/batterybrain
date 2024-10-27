@@ -1,10 +1,4 @@
-import React, {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-  useCallback,
-} from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
 interface ThemeContextType {
   darkMode: boolean;

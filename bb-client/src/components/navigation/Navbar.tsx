@@ -33,10 +33,10 @@ const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <nav className="bg-header p-2">
+    <nav className="bg-header p-2 bg-background-100">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
-        <div className="text-2xl font-bold text-text">
+        <div className="text-2xl font-bold text-text-100">
           <Link to="/dashboard">BætteryBrainz</Link>
         </div>
 
@@ -59,11 +59,13 @@ const Navbar: React.FC = () => {
 
               {/* Dropdown Menu */}
               {isDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-background rounded-md shadow-lg z-10">
-                  <p className="px-4 py-2 text-sm text-text">{profile.name}</p>
+                <div className="absolute right-0 mt-2 w-48 bg-background-100 rounded-md shadow-lg z-10">
+                  <p className="px-4 py-2 text-sm text-text-100">
+                    {profile.name}
+                  </p>
                   <button
                     onClick={handleLogout}
-                    className="block w-full text-left px-4 py-2 text-sm text-text hover:text-background hover:bg-text"
+                    className="block w-full text-left px-4 py-2 text-sm text-text-100 hover:text-text-900 hover:bg-text"
                   >
                     Logout
                   </button>

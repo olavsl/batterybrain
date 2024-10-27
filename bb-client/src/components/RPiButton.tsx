@@ -41,7 +41,7 @@ export const RPiButton = ({
   if (diffHours < 1) {
     indicatorColor = 'bg-green';
   } else if (diffHours < 24) {
-    indicatorColor = 'bg-yellow';
+    indicatorColor = 'bg-yellow-400';
   } else {
     indicatorColor = 'bg-red';
   }
@@ -50,14 +50,14 @@ export const RPiButton = ({
     <button
       key={key}
       onClick={() => (window.location.href = url)}
-      className="bg-gray-100 w-2/4 h-28 m-4 rounded-md"
+      className="bg-background-300 w-2/4 h-28 m-4 rounded-md hover:scale-105"
     >
-      <div className="flex flex-row h-full justify-between pl-8 pr-4 pt-3 pb-3">
-        <div className="flex flex-col text-left">
-          <h2 className="text-2xl mb-1">{subdomain}</h2>
-          <h3 className="text-sm text-gray-500">{url}</h3>
+      <div className="grid grid-cols-3 h-full justify-between pl-8 pr-4 pt-3 pb-3">
+        <div className="col-span-1 flex flex-col text-left">
+          <h2 className="text-2xl text-text-100 mb-1">{subdomain}</h2>
+          <h3 className="text-sm text-text-400">{url}</h3>
         </div>
-        <div className="flex flex-col justify-center">
+        <div className="col-span-1 flex flex-col justify-center">
           <SemiCircleProgress percentage={last_battery_lvl} />
           {/*       <svg height="100%" width="100%" viewBox="-2 -2 295 256">
             <path
@@ -65,17 +65,17 @@ export const RPiButton = ({
               strokeWidth="32"
             />
           </svg> */}
-          <h4 className="text-sm text-gray-500">Batteri</h4>
+          <h4 className="text-sm text-text-400">Batteri</h4>
         </div>
-        <div className="flex flex-col justify-between">
+        <div className="col-span-1 flex flex-col justify-between">
           <div className="flex flex-row w-full items-center justify-end ">
-            <h4 className="text-sm text-gray-500 mr-1">Status:</h4>
+            <h4 className="text-sm text-text-400 mr-1">Status:</h4>
             <div
               className={`flex w-4 h-4 rounded-full ${indicatorColor}`}
             ></div>
           </div>
-          <div>
-            <h4 className="text-sm text-gray-500">Sist oppdatert:</h4>
+          <div className="w-full flex flex-col items-end">
+            <h4 className="text-sm text-text-400">Sist oppdatert:</h4>
             <h4 className="text-sm">{last_updated}</h4>
           </div>
         </div>

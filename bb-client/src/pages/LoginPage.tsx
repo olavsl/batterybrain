@@ -51,12 +51,12 @@ const LoginPage: React.FC = () => {
   return (
     <div className="h-full grid grid-cols-1 md:grid-cols-3">
       {/* Login Section */}
-      <div className="col-span-1 h-full z-20 flex flex-col items-center justify-center bg-background">
-        <div className="absolute top-3 left-3 text-2xl font-bold text-text">
+      <div className="col-span-1 h-full z-20 flex flex-col items-center justify-center bg-background-200">
+        <div className="absolute top-3 left-3 text-2xl font-bold text-text-100">
           BætteryBrainz
         </div>
         <div className="flex flex-col items-start">
-          <h2 className="text-3xl font-bold mb-6 text-primary">Log In</h2>
+          <h2 className="text-3xl font-bold mb-6 text-text-100">Log In</h2>
           <GoogleButton onClick={() => login()} label="Sign in with Google" />
           {loading && <p className="text-gray-500 mt-4">Loading...</p>}
         </div>
