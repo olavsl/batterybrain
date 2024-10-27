@@ -76,8 +76,8 @@ const Dashboard: React.FC = () => {
   };
 
   return (
-    <div className="p-12 pt-6 flex gap-12">
-      <div className="w-1/2">
+    <div className="p-12 pt-6 grid grid-cols-2 gap-x-12 gap-y-6">
+      <div className="col-span-1 h-32">
         <h1 className="text-5xl text-start text-text-100 mb-8">
           Your Raspberry PIs
         </h1>
@@ -112,26 +112,25 @@ const Dashboard: React.FC = () => {
             ))}
           </div>
         </div>
+      </div>
 
-        {/* RPi Buttons */}
-        <div className="w-full">
-          <RPiButtons
-            rpis={
-              filteredRPis.length === 0 && tags.length === 0
-                ? rpis
-                : filteredRPis
-            }
-          />
-        </div>
+      <div className="col-span-1 h-32 flex justify-between items-end gap-6">
+        <StatCard title="Total RPis" value={rpis.length} />
+        <StatCard title="Online RPis" value={onlineRPis.length} />
+        <StatCard title="Avg. Battery Level" value={avgBatteryLevel} />
+      </div>
+
+      {/* RPi Buttons */}
+      <div className="col-span-1 h-80 w-full">
+        <RPiButtons
+          rpis={
+            filteredRPis.length === 0 && tags.length === 0 ? rpis : filteredRPis
+          }
+        />
       </div>
 
       {/* Map View with All Filtered RPis */}
-      <div className="w-1/2 flex flex-col gap-0">
-        <div className="flex justify-between items-center">
-          <StatCard title="Total RPis" value={rpis.length} />
-          <StatCard title="Online RPis" value={onlineRPis.length} />
-          <StatCard title="Avg. Battery Level" value={avgBatteryLevel} />
-        </div>
+      <div className="col-span-1 h-80">
         <MapView
           rpis={
             filteredRPis.length === 0 && tags.length === 0 ? rpis : filteredRPis

@@ -7,7 +7,7 @@ interface StatCardProps {
 
 const StatCard: React.FC<StatCardProps> = ({ title, value }) => {
   return (
-    <div className="w-48 h-32 rounded-lg flex flex-col gap-1">
+    <div className="w-48 h-fit rounded-lg flex flex-col gap-1">
       <div className="flex justify-center items-center h-fit mb-3">
         {title === 'Avg. Battery Level' ? (
           <span className="text-2xl font-bold text-text-100">{value}%</span>
