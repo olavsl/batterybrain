@@ -26,10 +26,15 @@ const Dashboard: React.FC = () => {
           longitude: rpi.longitude || Math.random() * 360 - 180,
         }));
 
-        const combinedRPis = [...fetchedRPis, ...mockData]; // Combine fetched and mock data
+        const filteredMockData = mockData.filter(
+          (mockRpi) => !fetchedRPis.some((fetchedRpi: { subdomain: string; }) => fetchedRpi.subdomain === mockRpi.subdomain)
+        );
+
+        const combinedRPis =[...fetchedRPis, ...filteredMockData]; // Combine fetched and mock data
         setRpis(combinedRPis);
       } catch (error) {
         console.error('Error fetching RPis:', error);
+        setRpis(mockData); // Use mock data if fetching fails
       }
     };
     getData();
