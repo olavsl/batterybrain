@@ -21,7 +21,8 @@ const Dashboard: React.FC = () => {
           subdomain: rpi.subdomain,
           last_update: rpi.last_update,
           last_battery_lvl:
-            rpi.last_battery_lvl || Math.floor(Math.random() * 100) + 1,
+            rpi.last_battery_lvl ||
+            Math.max(Math.floor(Math.random() * 100) + 1, 19),
           latitude: rpi.latitude || Math.random() * 180 - 90,
           longitude: rpi.longitude || Math.random() * 360 - 180,
         }));
