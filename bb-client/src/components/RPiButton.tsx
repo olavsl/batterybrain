@@ -29,17 +29,23 @@ export const RPiButton = ({
   const diffSeconds = Math.floor(
     (now.getTime() - last_update_date.getTime()) / 1000
   );
-  const diffMinutes = Math.floor(diffSeconds / 60);
-  const diffHours = Math.floor(diffMinutes / 60);
 
-  // Indicator color
+  let diffTime = `${diffSeconds} seconds ago`;
   let indicatorColor = 'bg-gray-500';
-  if (diffHours < 1) {
-    indicatorColor = 'bg-green';
-  } else if (diffHours < 24) {
+  if (diffSeconds > 86400) {
+    diffTime = `${Math.floor(diffSeconds / 86400)} days ago`;
+    indicatorColor = 'bg-red';
+  } else if (diffSeconds > 3600) {
+    diffTime = `${Math.floor(diffSeconds / 3600)} hours ago`;
+    indicatorColor = 'bg-red';
+  } else if (diffSeconds > 60) {
+    diffTime = `${Math.floor(diffSeconds / 60)} minutes ago`;
     indicatorColor = 'bg-yellow-400';
   } else {
-    indicatorColor = 'bg-red';
+    diffTime = `${diffSeconds} seconds ago`;
+  }
+  if (diffSeconds < 600) {
+    indicatorColor = 'bg-green';
   }
 
   return (
@@ -65,7 +71,7 @@ export const RPiButton = ({
           </div>
           <div className="w-full flex flex-col items-end">
             <h4 className="text-sm text-text-400">Last updated:</h4>
-            <h4 className="text-sm text-text-500">{last_update}</h4>
+            <h4 className="text-sm text-text-500">{diffTime}</h4>
           </div>
         </div>
       </div>
