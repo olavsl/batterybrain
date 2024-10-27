@@ -3,4 +3,6 @@ export type RPi = {
   subdomain: string;
   last_updated: string;
   last_battery_lvl: number;
+  latitude: number;
+  longitude: number;
 };

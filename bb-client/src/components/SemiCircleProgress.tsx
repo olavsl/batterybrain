@@ -18,6 +18,7 @@ const SemiCircleProgress = ({ percentage }: SemiCircleProgressProps) => {
         alignItems: 'center',
         justifyContent: 'center',
       }}
+      className="relative"
     >
       <svg width="100" height="60" viewBox="0 0 100 60">
         {/* Background semi-circle */}
@@ -45,6 +46,7 @@ const SemiCircleProgress = ({ percentage }: SemiCircleProgressProps) => {
           fontWeight: 'bold',
           marginTop: '1.5em',
         }}
+        className="text-text-100"
       >
         {percentage}%
       </div>

@@ -10,6 +10,7 @@ import Dashboard from './pages/Dashboard';
 import NotFound from './pages/NotFound';
 import Login from './pages/LoginPage';
 import { isAuthenticated } from './services/LoginService';
+import './App.css';
 
 const App: React.FC = () => {
   return (
