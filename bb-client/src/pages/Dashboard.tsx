@@ -3,6 +3,7 @@ import RPiButtons from '../components/RPiButtons';
 import MapView from '../components/map/MapView';
 import { RPi } from '../types/Rpi';
 import { fetchAllRPis } from '../services/RPiDBService';
+// import { mockData } from '../data/mockData';
 
 const Dashboard: React.FC = () => {
   const [rpis, setRpis] = useState<RPi[]>([]);
@@ -55,14 +56,14 @@ const Dashboard: React.FC = () => {
     <div className="p-12 flex gap-12">
       <div className="w-1/2">
         <h1 className="text-7xl text-start text-text-100 mb-8">
-          Your Raspberry Pis
+          Your Raspberry PIs
         </h1>
 
         {/* Search and Tag Input */}
         <div className="w-full">
           <div className="flex flex-col gap-2">
             <label htmlFor="search" className="text-text-100">
-              Search for a Raspberry Pi
+              Search for a Raspberry PI
             </label>
             <input
               type="text"
@@ -83,7 +84,7 @@ const Dashboard: React.FC = () => {
                 <span className="text-sm text-text-100">{tag}</span>
                 <button
                   onClick={() => removeTag(tag)}
-                  className="ml-2 text-gray-500 hover:text-gray-700"
+                  className="ml-2 text-text-400 hover:text-text-500"
                 >
                   &times;
                 </button>
