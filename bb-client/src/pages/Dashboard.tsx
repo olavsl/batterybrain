@@ -53,8 +53,8 @@ const Dashboard: React.FC = () => {
   // Online RPis
   const onlineRPis = rpis.filter(
     (rpi) =>
-      typeof rpi.last_update === 'number' &&
-      new Date().getTime() - rpi.last_update < 600
+      typeof rpi.last_update === 'string' &&
+      new Date(rpi.last_update) > new Date(Date.now() - 10 * 60 * 1000)
   );
 
   // Average battery level

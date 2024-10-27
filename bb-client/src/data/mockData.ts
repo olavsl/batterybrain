@@ -1,138 +1,28 @@
-export const mockData = [
-  {
-    mac_address: '00:00:00:00:00:00',
-    subdomain: 'rpi1',
-    last_update: '2024-10-27 02:30:03',
-    last_battery_lvl: 65,
-    latitude: 59.911491,
-    longitude: 10.757933,
-  },
-  {
-    mac_address: '00:00:00:00:00:01',
-    subdomain: 'rpi2',
-    last_update: '2024-10-25 14:06:03',
-    last_battery_lvl: 17,
-    latitude: 51.5074,
-    longitude: 0.1278,
-  },
-  {
-    mac_address: '00:00:00:00:00:02',
-    subdomain: 'rpi3',
-    last_update: '2024-10-26 08:06:03',
-    last_battery_lvl: 87,
-    latitude: 12.9716,
-    longitude: 77.5946,
-  },
-  {
-    mac_address: '00:00:00:00:00:03',
-    subdomain: 'rpi4',
-    last_update: '2024-10-26 08:06:03',
-    last_battery_lvl: 87,
-    latitude: 37.7749,
-    longitude: -122.4194,
-  },
-  {
-    mac_address: '00:00:00:00:00:04',
-    subdomain: 'rpi5',
-    last_update: '2024-10-26 08:06:03',
-    last_battery_lvl: 87,
-    latitude: 35.6895,
-    longitude: 139.6917,
-  },
-  {
-    mac_address: '00:00:00:00:00:05',
-    subdomain: 'rpi6',
-    last_update: '2024-10-26 08:06:03',
-    last_battery_lvl: 87,
-    latitude: 22.3193,
-    longitude: 114.1694,
-  },
-  {
-    mac_address: '00:00:00:00:00:06',
-    subdomain: 'rpi7',
-    last_update: '2024-10-26 08:06:03',
-    last_battery_lvl: 87,
-    latitude: 1.3521,
-    longitude: 103.8198,
-  },
-  {
-    mac_address: '00:00:00:00:00:07',
-    subdomain: 'rpi8',
-    last_update: '2024-10-26 08:06:03',
-    last_battery_lvl: 87,
-    latitude: 40.7128,
-    longitude: -74.006,
-  },
-  {
-    mac_address: '00:00:00:00:00:08',
-    subdomain: 'rpi9',
-    last_update: '2024-10-26 08:06:03',
-    last_battery_lvl: 87,
-    latitude: 34.0522,
-    longitude: -118.2437,
-  },
-  {
-    mac_address: '00:00:00:00:00:09',
-    subdomain: 'rpi10',
-    last_update: '2024-10-26 08:06:03',
-    last_battery_lvl: 87,
-    latitude: 51.5074,
-    longitude: -0.1278,
-  },
-  {
-    mac_address: '00:00:00:00:00:10',
-    subdomain: 'rpi11',
-    last_update: '2024-10-26 08:06:03',
-    last_battery_lvl: 87,
-    latitude: 55.7558,
-    longitude: 37.6176,
-  },
-  {
-    mac_address: '00:00:00:00:00:11',
-    subdomain: 'rpi12',
-    last_update: '2024-10-26 08:06:03',
-    last_battery_lvl: 87,
-    latitude: 59.3293,
-    longitude: 18.0686,
-  },
-  {
-    mac_address: '00:00:00:00:00:12',
-    subdomain: 'rpi13',
-    last_update: '2024-10-26 08:06:03',
-    last_battery_lvl: 87,
-    latitude: 52.52,
-    longitude: 13.405,
-  },
-  {
-    mac_address: '00:00:00:00:00:13',
-    subdomain: 'rpi14',
-    last_update: '2024-10-26 08:06:03',
-    last_battery_lvl: 87,
-    latitude: 48.8566,
-    longitude: 2.3522,
-  },
-  {
-    mac_address: '00:00:00:00:00:14',
-    subdomain: 'rpi15',
-    last_update: '2024-10-26 08:06:03',
-    last_battery_lvl: 87,
-    latitude: 37.7749,
-    longitude: -122.4194,
-  },
-  {
-    mac_address: '00:00:00:00:00:15',
-    subdomain: 'rpi16',
-    last_update: '2024-10-26 08:06:03',
-    last_battery_lvl: 87,
-    latitude: 35.6895,
-    longitude: 139.6917,
-  },
-  {
-    mac_address: '00:00:00:00:00:16',
-    subdomain: 'rpi17',
-    last_update: '2024-10-26 08:06:03',
-    last_battery_lvl: 87,
-    latitude: 22.3193,
-    longitude: 114.1694,
-  },
-];
+import { faker } from '@faker-js/faker';
+
+const getRandomTimeInLast10Minutes = () => {
+  const now = new Date();
+  const randomOffset = Math.floor(Math.random() * 10 * 50 * 1000); // Random offset in milliseconds
+  const randomTime = new Date(now.getTime() + 3600000 - randomOffset); // Random time in the last 10 minutes
+  const result = randomTime.toISOString().replace('T', ' ').split('.')[0];
+  console.log(result);
+  return result;
+};
+
+const getRandomTimeInPast = () => {
+  return faker.date.past().toISOString().replace('T', ' ').split('.')[0];
+};
+
+export const mockData = Array.from({ length: 100 }, (_, index) => {
+  const isRecentUpdate = Math.random() < 0.7;
+  return {
+    mac_address: faker.internet.mac(),
+    subdomain: `rpi${index + 1}`,
+    last_update: isRecentUpdate
+      ? getRandomTimeInLast10Minutes()
+      : getRandomTimeInPast(),
+    last_battery_lvl: Math.max(Math.floor(Math.random() * 100) + 1, 19),
+    latitude: Math.random() * 180 - 90,
+    longitude: Math.random() * 360 - 180,
+  };
+});
