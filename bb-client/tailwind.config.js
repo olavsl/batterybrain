@@ -28,6 +28,8 @@ module.exports = {
           700: 'var(--color-text-700)',
           800: 'var(--color-text-800)',
           900: 'var(--color-text-900)',
+          light: 'var(--color-text-light)',
+          dark: 'var(--color-text-dark)',
         },
         green: '#34C687',
         red: '#DA3E27',

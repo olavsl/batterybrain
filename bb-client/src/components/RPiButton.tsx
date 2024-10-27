@@ -50,7 +50,7 @@ export const RPiButton = ({
     <button
       key={key}
       onClick={() => (window.location.href = url)}
-      className="bg-background-300 w-2/4 h-28 m-4 rounded-md hover:scale-105"
+      className="bg-background-300 w-1/2 h-28 m-4 rounded-md hover:scale-105"
     >
       <div className="grid grid-cols-3 h-full justify-between pl-8 pr-4 pt-3 pb-3">
         <div className="col-span-1 flex flex-col text-left">
