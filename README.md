@@ -28,6 +28,9 @@ Welcome to **BætteryBrainz**, a dashboard application designed to manage and mo
 - **Backend**: Google OAuth API for authentication
 - **Other Libraries**: `@react-oauth/google`, `react-router-dom`, `axios`
 
+## System architecture
+![Image of the system architecture](bb-client/public/readme_images/Architecture%20Diagram.png)
+
 ## Setup and Installation
 
 ### 1. Clone the repository
